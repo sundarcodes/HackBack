@@ -11,18 +11,18 @@
       .state('home', {
         url: '/',
         templateUrl: 'app/main/main.html',
-        controller: 'UserController',
+        controller: 'MainController',
         controllerAs: 'main'
       }).state('login', {
         url: '/login',
-        templateUrl: 'app/components/user/views/login.html',
-        controller: 'UserController',
+        templateUrl: 'app/components/home/views/login.html',
+        controller: 'HomeController',
         controllerAs: 'home'
       }).state('register', {
         url: '/register',
-        templateUrl: 'app/components/user/views/register.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+        templateUrl: 'app/components/home/views/register.html',
+        controller: 'HomeController',
+        controllerAs: 'home'
       });
 
     $urlRouterProvider.otherwise('/');
