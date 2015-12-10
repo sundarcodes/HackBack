@@ -1,0 +1,7 @@
+1. Integrating Authentication to this app.
+2. Passport - Different stratergies
+3. JWT - Newest kid on block for authentication
+4. Accessing using PostMan
+5. CORS - Cross scripting
+6. Accessing REST from Angular App - ngResource
+7. Node Inspector for debugging node application

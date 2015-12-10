@@ -1,0 +1,24 @@
+<div>
+  Registration closes in <span id="timer">05:00<span> minutes!
+  </div>
+
+  <script>
+  window.onload = function(){
+    var hou = 2;
+    var sec = 60;
+    setInterval(function(){
+
+      document.getElementById("timer").innerHTML = hou +" : " + sec ;
+      sec--;
+      if(sec == 00)
+      {
+        hou--;
+        sec = 60;
+        if (hou == 0)
+        {
+           hou = 2;
+        }
+      }
+    },1000);
+   }
+   </script>

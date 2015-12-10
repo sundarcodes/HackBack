@@ -23,6 +23,11 @@
         templateUrl: 'app/components/home/views/register.html',
         controller: 'HomeController',
         controllerAs: 'home'
+      }).state('user', {
+        url: '/user',
+        templateUrl: 'app/components/user/views/user_home.html',
+        controller: 'UserController',
+        controllerAs: 'user'
       });
 
     $urlRouterProvider.otherwise('/');
