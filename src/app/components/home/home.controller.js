@@ -10,6 +10,7 @@ function homeController($state,UserService){
   function init() {
     homeCtrl.email="";
     homeCtrl.password="";
+    homeCtrl.isLoginError = false;
   }
 
   homeCtrl.register = function(){
@@ -17,14 +18,17 @@ function homeController($state,UserService){
   };
 
   homeCtrl.login = function () {
-    UserService.login(homeCtrl.email,homeCtrl.password).then(function(){
+    UserService.login(homeCtrl.email,homeCtrl.password).then(function(isUserAdmin){
       $state.go('user');
     },function(err){
-
+      homeCtrl.isLoginError = true;
     });
 
   };
 
+  homeCtrl.loginError = function() {
+    return homeCtrl.isLoginError;
+  }
   // Initialize
   init();
 }

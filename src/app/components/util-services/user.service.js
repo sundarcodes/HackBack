@@ -6,18 +6,25 @@ service('UserService',userService);
 function userService(AuthenticationService,$log){
   var usrService = this;
 
-  this.login = function (username,password) {
+  function init() {
+    usrService.userDetails={};
+  }
+
+  usrService.login = function (username,password) {
     return AuthenticationService.login(username,password)
-    .then(function(data){
-      AuthenticationService.saveTokens(data);
+    .then(function(result){
+      AuthenticationService.saveTokens(result);
       $log.info('User authenticated');
+      usrService.userDetails=result.data.userData;
+      return true;
     },function(status){
       $log.info('User not authenticated');
       $log.info(status);
+      throw "Invalid credentials";
     });
   };
 
-  this.register = function (username,email,password) {
+  usrService.register = function (username,email,password) {
     return AuthenticationService.register(username,email,password)
     .then(function(data){
       AuthenticationService.saveTokens(data);
@@ -28,4 +35,18 @@ function userService(AuthenticationService,$log){
       return "User not created";
     });
   };
+  usrService.isAdmin = function() {
+      return AuthenticationService.isAdmin();
+  }
+
+  usrService.logout = function(){
+      AuthenticationService.logout();
+      init();
+  }
+
+  usrService.isLoggedIn = function(){
+    return AuthenticationService.isLoggedIn();
+  }
+
+  init();
 }

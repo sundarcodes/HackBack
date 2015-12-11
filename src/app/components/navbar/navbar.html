@@ -6,11 +6,14 @@
       </a>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6" >
       <ul class="nav navbar-nav">
-        <li><a ng-href="#">Current Events</a></li>
+        <li ng-show="navbarCtrl.isAdmin()"><a ui-sref="eventCreate" ng-href="#">Create Event</a></li>
       </ul>
 
+      <ul class="nav navbar-nav navbar-right" ng-show="navbarCtrl.isLoggedIn()">
+        <li><a ng-click="navbarCtrl.logout()" ng-href="#">Logout</a></li>
+      </ul>
     </div>
   </div>
 </nav>

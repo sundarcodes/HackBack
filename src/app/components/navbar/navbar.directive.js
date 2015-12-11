@@ -6,7 +6,7 @@
     .directive('acmeNavbar', acmeNavbar);
 
   /** @ngInject */
-  function acmeNavbar() {
+  function acmeNavbar($state,UserService) {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
@@ -14,18 +14,29 @@
           creationDate: '='
       },
       controller: NavbarController,
-      controllerAs: 'vm',
+      controllerAs: 'navbarCtrl',
       bindToController: true
     };
 
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment) {
+    function NavbarController() {
       var vm = this;
 
-      // "vm.creation" is avaible by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
+      vm.isLoggedIn = function(){
+        return UserService.isLoggedIn();
+
+      };
+      vm.isAdmin = function(){
+        return UserService.isAdmin();
+      };
+      vm.logout = function(){
+        UserService.logout();
+
+        $state.go('home');
+      };
+
     }
   }
 

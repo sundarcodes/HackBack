@@ -5,3 +5,4 @@
 5. CORS - Cross scripting
 6. Accessing REST from Angular App - ngResource
 7. Node Inspector for debugging node application
+8. CORS - Pre-flight request in XHR

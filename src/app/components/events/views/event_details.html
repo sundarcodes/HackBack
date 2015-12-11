@@ -1,0 +1,38 @@
+<div class="container">
+  <form class="form-horizontal" >
+  <fieldset>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Event Name</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="eventName" disabled ng-model="eventDetails.eventObj.name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Description</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="eventDetails" disabled ng-model="eventDetails.eventObj.desc">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Start Date</label>
+      <div class="col-lg-10">
+        <input type="date" class="form-control" id="startDate" ng-model="eventDetails.eventObj.startDate">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">End Date</label>
+      <div class="col-lg-10">
+        <input type="date" class="form-control" id="endDate" ng-model="eventDetails.eventObj.endDate">
+      </div>
+    </div>
+      <div class="form-group" ng-show="UserService.isAdmin()">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button type="reset" class="btn btn-default">Reset</button>
+          <button type="submit" class="btn btn-primary">Update</button>
+          <button type="submit" class="btn btn-primary">Add Projects</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+</div>

@@ -28,6 +28,26 @@
         templateUrl: 'app/components/user/views/user_home.html',
         controller: 'UserController',
         controllerAs: 'user'
+      }).state('admin', {
+        url: '/admin',
+        templateUrl: 'app/components/admin/views/admin_home.html',
+        controller: 'AdminController',
+        controllerAs: 'admin'
+      }).state('eventCreate', {
+        url: '/event/new',
+        templateUrl: 'app/components/events/views/event_new.html',
+        controller: 'EventController',
+        controllerAs: 'event'
+      }).state('eventList', {
+        url: '/event/list',
+        templateUrl: 'app/components/events/views/events_list.html',
+        controller: 'EventController',
+        controllerAs: 'event'
+      }).state('eventDetails', {
+        url: '/event/:id',
+        templateUrl: 'app/components/events/views/event_details.html',
+        controller: 'EventDetailsController',
+        controllerAs: 'eventDetails'
       });
 
     $urlRouterProvider.otherwise('/');
