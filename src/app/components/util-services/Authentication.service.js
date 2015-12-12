@@ -27,11 +27,13 @@ angular.module('hackathonRatingApp').service('AuthenticationService', function($
       if (auth.isLogged) {
 
         auth.isLogged = false;
+        auth.isUseraAdmin = false;
         delete auth.user;
         //delete auth.userRole;
 
         delete $window.sessionStorage.token;
         delete $window.sessionStorage.user;
+        delete $window.sessionStorage.isAdmin;
         //delete $window.sessionStorage.userRole;
         //$location.path("/login");
       }
@@ -40,8 +42,11 @@ angular.module('hackathonRatingApp').service('AuthenticationService', function($
     auth.check = function() {
       if ($window.sessionStorage.token && $window.sessionStorage.user) {
         auth.isLogged = true;
-        if ($window.sessionStorage.isAdmin) {
+        if ($window.sessionStorage.isAdmin === "true") {
+//          console.log("Admin true");
           auth.isUseraAdmin = true;
+        } else{
+          auth.isUseraAdmin = false;
         }
       } else {
         auth.isLogged = false;
@@ -54,7 +59,11 @@ angular.module('hackathonRatingApp').service('AuthenticationService', function($
       auth.user=result.data.userData.username;
       $window.sessionStorage.token = result.data.token;
       $window.sessionStorage.user = result.data.userData.username;
-      $window.sessionStorage.isAdmin = result.data.userData.isAdmin; // to fetch the user details on refresh
+      if (result.data.userData.isAdmin){
+      $window.sessionStorage.isAdmin = true;
+    } else{
+      $window.sessionStorage.isAdmin = false;
+    } // to fetch the user details on refresh
        //$window.sessionStorage.userRole = user.role; // to fetch the user details on refresh
   };
 });

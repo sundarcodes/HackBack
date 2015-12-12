@@ -1,0 +1,45 @@
+<div class="container">
+  <form class="form-horizontal" ng-submit="project.createProject()">
+  <fieldset>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Project Name</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="projectName" placeholder="Project/Idea" ng-model="project.projectDetails.name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Description</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="projectDetails" placeholder="Additional details" ng-model="project.projectDetails.desc">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Tech Stack</label>
+      <div class="col-lg-10">
+        <select multiple="" class="form-control">
+           <option>HTML</option>
+           <option>CSS</option>
+           <option>JavaScript</option>
+           <option>JQuery</option>
+           <option>Angular</option>
+           <option>Rails</option>
+           <option>Node</option>
+         </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Github Repository Link</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="repositoryLink" placeholder="Paste the github URL for this project" ng-model="project.projectDetails.githubURL">
+      </div>
+    </div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button type="reset" class="btn btn-default">Reset</button>
+          <button type="submit" class="btn btn-primary">Create Project</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+</div>

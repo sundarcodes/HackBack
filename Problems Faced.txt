@@ -1,3 +1,5 @@
+
+Learnings:
 1. Integrating Authentication to this app.
 2. Passport - Different stratergies
 3. JWT - Newest kid on block for authentication
@@ -6,3 +8,14 @@
 6. Accessing REST from Angular App - ngResource
 7. Node Inspector for debugging node application
 8. CORS - Pre-flight request in XHR
+
+Need more investigation:
+1. ng-Resource - Instance methods and Class Methods - $save and save. Know which one to use
+
+Problems Faced:
+
+Issues to be fixed:
+9. Using $resource for RESTFUL API
+10. Conversion of Date Format
+11. Fetch from your services instead of using API.
+12.

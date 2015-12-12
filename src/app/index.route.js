@@ -35,19 +35,24 @@
         controllerAs: 'admin'
       }).state('eventCreate', {
         url: '/event/new',
-        templateUrl: 'app/components/events/views/event_new.html',
+        templateUrl: 'app/components/event/views/event_new.html',
         controller: 'EventController',
         controllerAs: 'event'
       }).state('eventList', {
         url: '/event/list',
-        templateUrl: 'app/components/events/views/events_list.html',
+        templateUrl: 'app/components/event/views/events_list.html',
         controller: 'EventController',
         controllerAs: 'event'
       }).state('eventDetails', {
         url: '/event/:id',
-        templateUrl: 'app/components/events/views/event_details.html',
+        templateUrl: 'app/components/event/views/event_details.html',
         controller: 'EventDetailsController',
         controllerAs: 'eventDetails'
+      }).state('projectCreate', {
+        url: '/event/:id/new',
+        templateUrl: 'app/components/project/views/project_new.html',
+        controller: 'ProjectController',
+        controllerAs: 'project'
       });
 
     $urlRouterProvider.otherwise('/');

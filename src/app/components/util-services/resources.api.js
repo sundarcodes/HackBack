@@ -3,7 +3,19 @@ angular.module('hackathonRatingApp').factory('UserResource', function($resource)
 });
 
 angular.module('hackathonRatingApp').factory('EventResource', function($resource) {
-  return $resource('http://localhost:1337/event/:event',{event: "@event"}); // Note the full endpoint address
+  return $resource('http://localhost:1337/event/:event',{event: "@event"},{
+    update: {
+      method: 'PUT' // this method issues a PUT request
+    }
+  }); // Note the full endpoint address
+});
+
+angular.module('hackathonRatingApp').factory('EventResource', function($resource) {
+  return $resource('http://localhost:1337/event/:event/:project',{event: "@event",project: "@project"},{
+    update: {
+      method: 'PUT' // this method issues a PUT request
+    }
+  }); // Note the full endpoint address
 });
 
 angular.module('hackathonRatingApp').factory('ProjectResource', function($resource) {

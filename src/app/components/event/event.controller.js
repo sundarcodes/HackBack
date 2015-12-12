@@ -9,6 +9,10 @@ function eventController(EventService,$state,$filter) {
   function init(){
     evtCtlr.eventDetails={};
     evtCtlr.eventsList=EventService.getAllEvents();
+    //evtCtlr.currentDate = new Date();
+    evtCtlr.eventDetails.startDate = new Date();
+    evtCtlr.eventDetails.endDate= new Date();
+
     //console.log(evtCtlr.eventsList);
   }
 

@@ -1,0 +1,53 @@
+<div class="container">
+  <form class="form-horizontal">
+  <fieldset>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Event Name</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="eventName" ng-readonly="!eventDetails.isUserAdmin()" ng-model="eventDetails.eventObj.name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Description</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="eventDetails" ng-readonly="!eventDetails.isUserAdmin()" ng-model="eventDetails.eventObj.desc">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Start Date</label>
+      <div class="col-lg-10">
+        <input type="date" class="form-control" id="startDate" ng-readonly="!eventDetails.isUserAdmin()" value="{{eventDetails.eventObj.startDate | date:'yyyy-MM-dd'}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">End Date</label>
+      <div class="col-lg-10">
+        <input type="date" class="form-control" id="endDate" ng-readonly="!eventDetails.isUserAdmin()" value="{{eventDetails.eventObj.endDate | date:'yyyy-MM-dd'}}">
+      </div>
+    </div>
+      <div class="form-group" ng-show="eventDetails.isUserAdmin()">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button ng-click="eventDetails.updateEvent()" class="btn btn-primary">Update</button>
+          <button ng-click="eventDetails.deleteEvent()" class="btn btn-primary">Delete Event</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" ng-repeat="project in eventDetails.eventObj.projects">
+        <div class="well">
+          <h3>{{project.name}}</h3>
+          <p>{{project.desc}}</p>
+        </div>
+      </div>
+      <div class="col-md-3" ng-show="eventDetails.isUserAdmin()">
+            <a ui-sref="projectCreate({id: eventDetails.eventObj.id})" class="btn btn-primary btn-lg">Create New Project</a>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
