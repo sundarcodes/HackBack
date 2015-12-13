@@ -3,11 +3,15 @@
 angular.module('hackathonRatingApp').
 service('UserService',userService);
 
-function userService(AuthenticationService,$log){
+function userService(AuthenticationService,$log,UserResource){
   var usrService = this;
 
   function init() {
     usrService.userDetails={};
+  }
+
+  usrService.getAllUsers = function(){
+    return UserResource.query();
   }
 
   usrService.login = function (username,password) {

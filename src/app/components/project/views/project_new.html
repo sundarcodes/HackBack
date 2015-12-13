@@ -4,7 +4,8 @@
     <div class="form-group">
       <label class="col-lg-2 control-label">Project Name</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="projectName" placeholder="Project/Idea" ng-model="project.projectDetails.name">
+        <input type="text" class="form-control" id="projectName" placeholder="Project/Idea"
+        maxlength="25" ng-model="project.projectDetails.name">
       </div>
     </div>
     <div class="form-group">
@@ -33,6 +34,18 @@
         <input type="text" class="form-control" id="repositoryLink" placeholder="Paste the github URL for this project" ng-model="project.projectDetails.githubURL">
       </div>
     </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Added Team members</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="addedTeamMembers" placeholder="Use Add Team member button for adding new members" ng-model="project.projectDetails.particpants">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-10 text-center">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPeopleModal">Add Team Members</button>
+      </div>
+    </div>
       <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
           <button type="reset" class="btn btn-default">Reset</button>
@@ -42,4 +55,29 @@
     </fieldset>
   </form>
 
+</div>
+
+
+<div id="addPeopleModal" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add Members to Project</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" placeholder="Search for users" ng-model="project.searchText">
+        <hr>
+        <div class="container col-md-12">
+          <div class="row">
+            <div class="md-col-3" ng-repeat="userObj in project.userDetails | filter:project.searchText">
+              <div class="well well-sm">
+                <span>{{userObj.username}}<span> <input class="pull-right" type="checkbox">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
