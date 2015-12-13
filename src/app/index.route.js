@@ -49,7 +49,7 @@
         controller: 'EventDetailsController',
         controllerAs: 'eventDetails'
       }).state('projectCreate', {
-        url: '/event/:id/new',
+        url: '/event/:id/newProject',
         templateUrl: 'app/components/project/views/project_new.html',
         controller: 'ProjectController',
         controllerAs: 'project'

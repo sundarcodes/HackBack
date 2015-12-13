@@ -1,0 +1,10 @@
+Trying location provider `geoclue'...
+Started Geoclue provider `Geoclue Master'.
+Using provider `geoclue'.
+Could not get location (3 retries left): Geoclue master client has no usable Position providers.
+Unable to get location from provider.
+Trying location provider `geoclue'...
+Started Geoclue provider `Geoclue Master'.
+Using provider `geoclue'.
+Could not get location (3 retries left): Geoclue master client has no usable Position providers.
+Unable to get location from provider.

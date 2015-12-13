@@ -15,9 +15,9 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="col-lg-2 control-label">Tech Stack</label>
+      <label class="col-lg-2 control-label">Technology Stack</label>
       <div class="col-lg-10">
-        <select multiple="" class="form-control">
+        <select multiple class="form-control" ng-model="project.projectDetails.techStack">
            <option>HTML</option>
            <option>CSS</option>
            <option>JavaScript</option>
@@ -31,19 +31,19 @@
     <div class="form-group">
       <label class="col-lg-2 control-label">Github Repository Link</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="repositoryLink" placeholder="Paste the github URL for this project" ng-model="project.projectDetails.githubURL">
+        <input type="text" class="form-control" id="repositoryLink" placeholder="Paste the github URL for this project" ng-model="project.projectDetails.repoLink">
       </div>
     </div>
     <div class="form-group">
       <label class="col-lg-2 control-label">Added Team members</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="addedTeamMembers" placeholder="Use Add Team member button for adding new members" ng-model="project.projectDetails.particpants">
+        <input type="text" class="form-control" id="addedTeamMembers" placeholder="Use Manage Team member button for adding or removing new members" ng-model="project.selectedParticipants" disabled>
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-lg-10 text-center">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPeopleModal">Add Team Members</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPeopleModal">Manage Team Members</button>
       </div>
     </div>
       <div class="form-group">
@@ -72,7 +72,7 @@
           <div class="row">
             <div class="md-col-3" ng-repeat="userObj in project.userDetails | filter:project.searchText">
               <div class="well well-sm">
-                <span>{{userObj.username}}<span> <input class="pull-right" type="checkbox">
+                <span>{{userObj.username}}<span> <input class="pull-right" type="checkbox" ng-click="project.toggleSelection(userObj)" ng-checked="project.checkedUsers.indexOf(userObj) != -1">
               </div>
             </div>
           </div>

@@ -14,7 +14,11 @@ function homeController($state,UserService){
   }
 
   homeCtrl.register = function(){
-      UserService.register(homeCtrl.username,homeCtrl.email,homeCtrl.password);
+      UserService.register(homeCtrl.username,homeCtrl.email,homeCtrl.password).then(function(isUserAdmin){
+        $state.go('user');
+      },function(err){
+        homeCtrl.isLoginError = true;
+      });
   };
 
   homeCtrl.login = function () {
