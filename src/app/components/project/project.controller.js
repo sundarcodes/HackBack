@@ -1,7 +1,7 @@
 angular.module('hackathonRatingApp').
 controller('ProjectController',projectCtrl);
 
-function projectCtrl($stateParams,UserService,ProjectService){
+function projectCtrl($stateParams,UserService,ProjectService,$state){
   var vm=this;
 
   function init(){
@@ -22,7 +22,13 @@ function projectCtrl($stateParams,UserService,ProjectService){
       //projectParticipant.
       vm.projectDetails.participants.push(user.id);
     });
-    ProjectService.createProject(vm.projectDetails,$stateParams.id);
+    ProjectService.createProject(vm.projectDetails,$stateParams.id).then(
+      function(){
+        $state.go('eventList');
+      },function(err){
+
+      }
+    );
   };
 
   vm.getUserDetails = function(){

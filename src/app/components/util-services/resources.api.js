@@ -29,6 +29,6 @@ angular.module('hackathonRatingApp').factory('ProjectResource', function($resour
 });
 
 angular.module('hackathonRatingApp').factory('ProjectParticipantResource', function($resource) {
-  return $resource('http://localhost:1337/event/:eventId/projects/:projectId/participants/:userId',
-{eventId: "@eventId",projectId: "@projectId"}); // Note the full endpoint address
+  return $resource('http://localhost:1337/projectparticipants/:id',
+{id: "@id"}); // Note the full endpoint address
 });

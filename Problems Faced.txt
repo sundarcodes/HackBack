@@ -12,6 +12,7 @@ Learnings:
 Need more investigation:
 1. ng-Resource - Instance methods and Class Methods - $save and save. Know which one to use
 2. Validations in waterline Model - required:true in case of event
+3. Many to Many associations - without intermediate Model
 
 Problems Faced:
 

@@ -1,0 +1,58 @@
+<div class="container">
+  <form class="form-horizontal" ng-submit="project.updateProject()">
+  <fieldset>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Project Name</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="projectName" placeholder="Project/Idea"
+        maxlength="25" ng-model="project.projectDetails.name" ng-readonly="!project.isUserAdmin()">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Description</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="projectDetails" placeholder="Additional details" ng-model="project.projectDetails.desc">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Technology Stack</label>
+      <div class="col-lg-10">
+        <select multiple class="form-control" ng-model="project.projectDetails.techStack">
+           <option>HTML</option>
+           <option>CSS</option>
+           <option>JavaScript</option>
+           <option>JQuery</option>
+           <option>Angular</option>
+           <option>Rails</option>
+           <option>Node</option>
+         </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Github Repository Link</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="repositoryLink" placeholder="Paste the github URL for this project" ng-model="project.projectDetails.repoLink">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Added Team members</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="addedTeamMembers" placeholder="Use Manage Team member button for adding or removing new members" ng-model="project.selectedParticipants" disabled>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-10 text-center">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPeopleModal">Manage Team Members</button>
+      </div>
+    </div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button type="reset" class="btn btn-default">Reset</button>
+          <button type="submit" class="btn btn-primary">Create Project</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+</div>

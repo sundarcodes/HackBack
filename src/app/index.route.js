@@ -53,6 +53,11 @@
         templateUrl: 'app/components/project/views/project_new.html',
         controller: 'ProjectController',
         controllerAs: 'project'
+      }).state('projectDetails', {
+        url: '/event/:eventId/project/:projectId',
+        templateUrl: 'app/components/project/views/project_details.html',
+        controller: 'ProjectDetailsController',
+        controllerAs: 'project'
       });
 
     $urlRouterProvider.otherwise('/');

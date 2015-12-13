@@ -59,8 +59,6 @@ angular.module('hackathonRatingApp').service('AuthenticationService', function($
       auth.user=result.data.userData.username;
       $window.sessionStorage.token = result.data.token;
       $window.sessionStorage.user = result.data.userData.username;
-      console.log(result.data.userData);
-      console.log(result.data.userData.isAdmin);
       if (result.data.userData.isAdmin){
       $window.sessionStorage.isAdmin = true;
     } else{
