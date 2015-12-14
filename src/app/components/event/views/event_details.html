@@ -34,13 +34,22 @@
     </fieldset>
   </form>
 
+  <h3>Projects</h3>
+  <hr>
+
   <div class="container">
     <div class="row">
       <div class="col-md-3" ng-repeat="project in eventDetails.eventObj.projects">
-        <div class="well" ui-sref="projectDetails({eventId: eventDetails.eventObj.id,projectId: project.id})">
-          <h3>{{project.name}}</h3>
-          <p>{{project.desc}}</p>
+        <a id="Project" ui-sref="projectDetails({eventId: eventDetails.eventObj.id,projectId: project.id})" >
+        <div class="well">
+
+            <h3>{{project.name}}</h3>
+            <p>{{project.desc}}</p>
+
+          <!-- <a ui-sref="#" class="btn btn-primary btn-sm">Rate</a>
+          <a ui-sref="projectDetails({eventId: eventDetails.eventObj.id,projectId: project.id})" class="btn btn-primary btn-sm pull-right">Details</a> -->
         </div>
+        </a>
       </div>
       <div class="col-md-3" ng-show="eventDetails.isUserAdmin()">
             <a ui-sref="projectCreate({id: eventDetails.eventObj.id})" class="btn btn-primary btn-lg">Create New Project</a>

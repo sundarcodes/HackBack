@@ -3,12 +3,13 @@
 angular.module('hackathonRatingApp').
 controller('EventDetailsController', eventDetailsController);
 
-function eventDetailsController($stateParams,EventService,AuthenticationService,$state){
+function eventDetailsController($stateParams,EventService,AuthenticationService,$state,ProjectService){
   var evtDetCtrl=this;
 
   function init(){
     EventService.getEvent(parseInt($stateParams.id)).then(function(obj){
       evtDetCtrl.eventObj =  obj;
+      ProjectService.setProjectList(evtDetCtrl.eventObj.projects);
     });
   }
   evtDetCtrl.deleteEvent = function(){

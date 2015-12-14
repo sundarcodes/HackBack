@@ -3,12 +3,14 @@
 angular.module('hackathonRatingApp').
 controller('EventController', eventController);
 
-function eventController(EventService,$state,$filter) {
+function eventController(EventService,ProjectService,$state,$filter) {
   var evtCtlr = this;
 
   function init(){
     evtCtlr.eventDetails={};
+    // Get all events initially/during page reload
     evtCtlr.eventsList=EventService.getAllEvents();
+
     //evtCtlr.currentDate = new Date();
     evtCtlr.eventDetails.startDate = new Date();
     evtCtlr.eventDetails.endDate= new Date();

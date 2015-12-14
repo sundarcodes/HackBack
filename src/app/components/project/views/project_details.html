@@ -11,13 +11,13 @@
     <div class="form-group">
       <label class="col-lg-2 control-label">Description</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="projectDetails" placeholder="Additional details" ng-model="project.projectDetails.desc">
+        <input type="text" class="form-control" id="projectDetails" placeholder="Additional details" ng-model="project.projectDetails.desc" ng-readonly="!project.isUserAdmin()">
       </div>
     </div>
     <div class="form-group">
       <label class="col-lg-2 control-label">Technology Stack</label>
       <div class="col-lg-10">
-        <select multiple class="form-control" ng-model="project.projectDetails.techStack">
+        <select multiple class="form-control" ng-model="project.projectDetails.techStack" ng-readonly="!project.isUserAdmin()">
            <option>HTML</option>
            <option>CSS</option>
            <option>JavaScript</option>
@@ -31,22 +31,22 @@
     <div class="form-group">
       <label class="col-lg-2 control-label">Github Repository Link</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="repositoryLink" placeholder="Paste the github URL for this project" ng-model="project.projectDetails.repoLink">
+        <input type="text" class="form-control" id="repositoryLink" placeholder="Paste the github URL for this project" ng-model="project.projectDetails.repoLink" ng-readonly="!project.isUserAdmin()">
       </div>
     </div>
     <div class="form-group">
-      <label class="col-lg-2 control-label">Added Team members</label>
+      <label class="col-lg-2 control-label">Team members</label>
       <div class="col-lg-10">
         <input type="text" class="form-control" id="addedTeamMembers" placeholder="Use Manage Team member button for adding or removing new members" ng-model="project.selectedParticipants" disabled>
       </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" ng-show="project.isUserAdmin()">
       <div class="col-lg-10 text-center">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPeopleModal">Manage Team Members</button>
       </div>
     </div>
-      <div class="form-group">
+      <div class="form-group" ng-show="project.isUserAdmin()">
         <div class="col-lg-10 col-lg-offset-2">
           <button type="reset" class="btn btn-default">Reset</button>
           <button type="submit" class="btn btn-primary">Create Project</button>
@@ -55,4 +55,39 @@
     </fieldset>
   </form>
 
+  <div class="col-md-12 text-center">
+    <a class="btn btn-primary" data-toggle="modal" data-target="#feedBackModal">Rate this project</a>
+  </div>
+
+</div>
+
+
+<div id="feedBackModal" class="modal fade" ng-controller="FeedBackController as ctrl">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Rate this app</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container col-md-12">
+          <div class="row">
+            <div class="form-group">
+              <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="100"/>
+            </div>
+
+
+            <div class="form-group">
+              <input id="ex2" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="100"/>
+            </div>
+
+            <div class="form-group">
+              <input id="ex3" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="100"/>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -60,6 +60,14 @@ function eventService (EventResource) {
     );
   };
 
+  evtService.addProjectToEvent = function(project,eventId){
+      // Get the event object corresponding to the eventId from the eventStore
+      evtService.getEvent(eventId).then(function(eventObj){
+        eventObj.projects.push(project);
+      });
+
+  };
+
   evtService.getEventFromServiceStore = function(eventId){
     result={};
     for (i=0;i<evtService.eventsList.length;i++){
