@@ -1,5 +1,5 @@
 angular.module('hackathonRatingApp').factory('UserResource', function($resource) {
-  return $resource('http://localhost:1337/user/:id',{id: "@id"}); // Note the full endpoint address
+  return $resource('http://localhost:1337/user/:id'); // Note the full endpoint address
 });
 
 angular.module('hackathonRatingApp').factory('EventResource', function($resource) {
@@ -18,14 +18,19 @@ angular.module('hackathonRatingApp').factory('EventResource', function($resource
 //   }); // Note the full endpoint address
 // });
 
-angular.module('hackathonRatingApp').factory('ProjectResource', function($resource) {
-  return $resource('http://localhost:1337/event/:eventId/projects/:projectId',
-{eventId: "@eventId",projectId: "@id"}); // Note the full endpoint address
-});
+// angular.module('hackathonRatingApp').factory('ProjectResource', function($resource) {
+//   return $resource('http://localhost:1337/event/:eventId/projects/:projectId',
+// {eventId: "@eventId",projectId: "@id"}); // Note the full endpoint address
+// });
 
 angular.module('hackathonRatingApp').factory('ProjectResource', function($resource) {
   return $resource('http://localhost:1337/project/:projectId',
 {projectId: "@id"}); // Note the full endpoint address
+});
+
+angular.module('hackathonRatingApp').factory('FeedbackResource', function($resource) {
+  return $resource('http://localhost:1337/feedback/:id',
+{id: "@id"}); // Note the full endpoint address
 });
 
 angular.module('hackathonRatingApp').factory('ProjectParticipantResource', function($resource) {

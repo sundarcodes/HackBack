@@ -10,6 +10,9 @@ angular.module('hackathonRatingApp').service('AuthenticationService', function($
       auth.check();
       return auth.isUseraAdmin;
     };
+    auth.getCurrentUserId = function(){
+      
+    }
     auth.login = function (username, password) {
       return $http.post('http://localhost:1337/auth/local', {
         identifier: username,
@@ -59,6 +62,7 @@ angular.module('hackathonRatingApp').service('AuthenticationService', function($
       auth.user=result.data.userData.username;
       $window.sessionStorage.token = result.data.token;
       $window.sessionStorage.user = result.data.userData.username;
+      $window.sessionStorage.userId = result.data.userData.Id;
       if (result.data.userData.isAdmin){
       $window.sessionStorage.isAdmin = true;
     } else{

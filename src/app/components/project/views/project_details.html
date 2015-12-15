@@ -49,7 +49,7 @@
       <div class="form-group" ng-show="project.isUserAdmin()">
         <div class="col-lg-10 col-lg-offset-2">
           <button type="reset" class="btn btn-default">Reset</button>
-          <button type="submit" class="btn btn-primary">Create Project</button>
+          <button type="submit" class="btn btn-primary">Update Project</button>
         </div>
       </div>
     </fieldset>
@@ -71,21 +71,67 @@
       </div>
       <div class="modal-body">
         <div class="container col-md-12">
-          <div class="row">
+          <form class="form-horizontal" ng-submit="ctrl.submitFeedback()">
+          <fieldset>
+          <!-- <div class="row"> -->
             <div class="form-group">
-              <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="100"/>
+              <label class="control-label">Visual Appeal</label>
+              <div>
+                <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5" ng-model="ctrl.feedback.visualAppeal"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Technical Difficulty</label>
+              <div class="">
+                <input id="ex2" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="40" data-slider-step="1" data-slider-value="20" ng-model="ctrl.feedback.technicalDifficulty"/>
+              </div>
             </div>
 
-
             <div class="form-group">
-              <input id="ex2" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="100"/>
+              <label class="control-label">Completeness</label>
+              <div class="">
+                <input id="ex3" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="25" data-slider-step="1" data-slider-value="12" ng-model="ctrl.feedback.completeness"/>
+              </div>
             </div>
 
             <div class="form-group">
-              <input id="ex3" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="100"/>
+              <label class="control-label">Overall Feel</label>
+              <div class="">
+                <input id="ex4" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="25" data-slider-step="1" data-slider-value="12" ng-model="ctrl.feedback.overallFeel"/>
+              </div>
             </div>
 
-          </div>
+            <div class="form-group">
+              <label class="control-label">What you liked the most about this project?</label>
+              <div class="">
+                <textarea class="form-control" ng-model="ctrl.feedback.positives">
+                </textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label">What are the areas of improvement ?</label>
+              <div class="">
+                <textarea class="form-control" ng-model="ctrl.feedback.areasToImprove">
+                </textarea>
+              </div>
+            </div>
+
+            <div class="form-group" ng-hide="ctrl.isUserLoggedIn()">
+              <label class="col-lg-2 control-label">Your name</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" ng-model="ctrl.feedback.given_by">
+              </div>
+            </div>
+
+            <div class="form-group" >
+              <div class="col-lg-12 text-center">
+                <button type="submit" class="btn btn-primary">Submit Feedback</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+          <!-- </div> -->
         </div>
       </div>
     </div>

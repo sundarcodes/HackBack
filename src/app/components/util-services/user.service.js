@@ -7,11 +7,21 @@ function userService(AuthenticationService,$log,UserResource){
   var usrService = this;
 
   function init() {
-    usrService.userDetails={};
+    userService.currentUser={};
+  }
+
+  usrService.getCurrentUser = function(){
+    return userService.currentUser;
   }
 
   usrService.getAllUsers = function(){
     return UserResource.query();
+  }
+
+  usrService.getUserDetails = function(userId){
+    console.log(userId);
+    console.log('Before res get');
+     return UserResource.get({id: userId});
   }
 
   usrService.login = function (username,password) {
@@ -19,7 +29,8 @@ function userService(AuthenticationService,$log,UserResource){
     .then(function(result){
       AuthenticationService.saveTokens(result);
       $log.info('User authenticated');
-      usrService.userDetails=result.data.userData;
+      console.log(result);
+      usrService.currentUser=result.data.userData;
       return true;
     },function(status){
       $log.info('User not authenticated');
