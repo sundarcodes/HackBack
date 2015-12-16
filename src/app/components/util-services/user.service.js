@@ -10,8 +10,8 @@ function userService(AuthenticationService,$log,UserResource){
     userService.currentUser={};
   }
 
-  usrService.getCurrentUser = function(){
-    return userService.currentUser;
+  usrService.getCurrentUserId = function(){
+    return AuthenticationService.getCurrentUserId();
   }
 
   usrService.getAllUsers = function(){

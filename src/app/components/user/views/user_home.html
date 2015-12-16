@@ -7,8 +7,10 @@
       <div class="col-sm-12">
         <div class="container">
           <div class="row">
-            <div class="col-sm-4" ng-repeat="project in Projects">
-              <h3>{{project.id}}</h3>
+            <div class="col-sm-4" ng-repeat="project in user.projects">
+              <div class="well" ui-sref="projectFeedback({projectId:project.id})">
+                <h3>{{project.name}}</h3>
+              </div>
             </div>
           </div>
         </div>

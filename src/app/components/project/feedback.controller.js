@@ -40,13 +40,17 @@ function feedbackCtrl(AuthenticationService,$stateParams,FeedbackResource,$state
     vm.feedback.technicalDifficulty=vm.technicalDifficultySlider.sliderElem.textContent;
     vm.feedback.completeness=vm.completenessSlider.sliderElem.textContent;
     vm.feedback.overallFeel=vm.overallFeelSlider.sliderElem.textContent;
+    if (vm.feedback.given_by === "") {
+      // Assign the user name of the logged in user
+      vm.feedback.given_by = AuthenticationService.getCurrentUserName();
+    }
     console.log($stateParams);
     vm.feedback.project=$stateParams.projectId;
     console.log(vm.feedback);
     var saveQuery = FeedbackResource.save(vm.feedback);
     saveQuery.$promise.then(function(result){
       console.log("Saved");
-      alert("Feedback posted");
+      //alert("Feedback posted");
       $state.go("eventList");
     })
     //console.log(vm.overallFeelSlider.sliderElem.textContent);

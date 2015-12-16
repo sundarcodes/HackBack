@@ -58,6 +58,11 @@
         templateUrl: 'app/components/project/views/project_details.html',
         controller: 'ProjectDetailsController',
         controllerAs: 'project'
+      }).state('projectFeedback', {
+        url: '/project/:projectId/feedback',
+        templateUrl: 'app/components/project/views/feedback_list.html',
+        controller: 'FeedbackListController',
+        controllerAs: 'feedbackCtrl'
       });
 
     $urlRouterProvider.otherwise('/');

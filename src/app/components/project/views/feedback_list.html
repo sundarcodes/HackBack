@@ -1,0 +1,30 @@
+<div class="container">
+
+  <table class="table table-striped table-hover ">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Visual Appeal</th>
+        <th>Completeness</th>
+        <th>Technical Difficulty</th>
+        <th>Overall Feel</th>
+        <th>What I liked the Most</th>
+        <th>Points to Improve</th>
+        <th>Feedback by</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="feedback in feedbackCtrl.project.feedbacks">
+        <td>{{feedback.id}}</td>
+        <td>{{feedback.visualAppeal}}</td>
+        <td>{{feedback.completeness}}</td>
+        <td>{{feedback.technicalDifficulty}}</td>
+        <td>{{feedback.overallFeel}}</td>
+        <td>{{feedback.positives}}</td>
+        <td>{{feedback.areasToImprove}}</td>
+        <td>{{feedback.given_by}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
